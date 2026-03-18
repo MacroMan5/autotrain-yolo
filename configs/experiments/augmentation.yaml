@@ -1,0 +1,16 @@
+# Heavy Augmentation — test augmentation impact
+epochs: 20
+patience: 10
+imgsz: 640
+batch: -1
+lr0: 0.01
+cos_lr: true
+mosaic: 1.0
+close_mosaic: 5
+mixup: 0.15
+copy_paste: 0.1
+erasing: 0.4
+scale: 0.5
+fliplr: 0.5
+amp: true
+plots: true

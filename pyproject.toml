@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "yolocc"
+version = "0.1.0"
+description = "YOLO training toolkit — dataset tools, experiment tracking, HP tuning, active learning. Powered by Claude Code."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+authors = [
+    {name = "therouxe"},
+]
+keywords = [
+    "yolo", "yolo11", "yolov11", "yolo26", "yolocc",
+    "object-detection", "computer-vision", "training-pipeline",
+    "hyperparameter-tuning", "model-tune", "experiment-tracking",
+    "claude-code", "active-learning", "dataset-management",
+    "auto-annotation", "ultralytics", "cvat", "onnx-export",
+    "mlops", "model-training",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "ultralytics>=8.0.0",
+    "pyyaml>=6.0",
+    "pillow>=9.0.0",
+    "tqdm>=4.60.0",
+    "opencv-python>=4.8.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "pytest-timeout",
+    "ruff",
+]
+cvat = [
+    "cvat-sdk>=2.40.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/MacroMan5/yolocc-toolkit"
+Repository = "https://github.com/MacroMan5/yolocc-toolkit"
+Issues = "https://github.com/MacroMan5/yolocc-toolkit/issues"
+
+[project.scripts]
+yolo-train = "yolocc.training.trainer:train_cli"
+yolo-finetune = "yolocc.training.trainer:finetune_cli"
+yolo-validate = "yolocc.dataset.validator:validate_cli"
+yolo-analyze = "yolocc.training.analyzer:analyze_cli"
+yolo-export = "yolocc.export.onnx:export_cli"
+yolo-split = "yolocc.dataset.splitter:split_cli"
+yolo-clean = "yolocc.dataset.cleaner:clean_cli"
+yolo-merge = "yolocc.dataset.merger:merger_cli"
+yolo-autolabel = "yolocc.dataset.autolabel:autolabel_cli"
+yolo-experiment = "yolocc.experiment.runner:experiment_cli"
+yolo-cvat = "yolocc.cvat.cli:cvat_cli"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks integration tests",
+    "cvat: marks tests requiring running CVAT instance",
+]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 100

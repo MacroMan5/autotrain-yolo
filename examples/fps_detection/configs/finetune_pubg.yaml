@@ -1,0 +1,16 @@
+# Fine-tune for PUBG — transfer from base FPS model
+epochs: 30
+imgsz: 640
+batch: 16
+patience: 10
+freeze: 10
+lr0: 0.001
+lrf: 0.01
+cos_lr: true
+warmup_epochs: 1.0
+mosaic: 0.5
+close_mosaic: 5
+mixup: 0.0
+erasing: 0.3
+amp: true
+plots: true

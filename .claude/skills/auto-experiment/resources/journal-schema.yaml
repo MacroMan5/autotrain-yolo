@@ -1,0 +1,26 @@
+# Journal Entry Schema — append as fenced YAML block in summary.md after each experiment
+# Copy this template exactly. All REQUIRED fields must be present.
+
+# --- exp_NNN ---
+experiment_id: exp_NNN               # REQUIRED — sequential ID
+hypothesis: "string"                  # REQUIRED — testable: "I expect X because Y, so I'll try Z"
+reasoning: "string"                   # REQUIRED — cites specific data (per-class AP, profile stats)
+action: strategic | tune              # REQUIRED — strategic (run) or tune (model.tune)
+overrides: {key: value}               # REQUIRED — exact params or best params from tune
+architecture: yolo11n                 # REQUIRED — always present (e.g., yolo11n, yolo11s-p2)
+architecture_change:                  # OPTIONAL — only when architecture changes
+  from: yolo11n
+  to: yolo11s-p2
+tune:                                 # OPTIONAL — only for tune experiments
+  iterations: 20
+  search_space: {lr0: [0.001, 0.01]}
+  best_params: {lr0: 0.005}
+result:
+  map50_95: 0.000                     # REQUIRED — float
+  delta: +0.000                       # REQUIRED — vs current best
+  per_class_delta: {class: 0.000}     # REQUIRED — per class vs current best
+  epochs_run: 0                       # REQUIRED — int
+  converged: false                    # REQUIRED — bool
+learning: "string"                    # REQUIRED — what was learned
+verdict: improved                     # REQUIRED — improved | regressed | neutral
+next_suggestion: "string"             # REQUIRED — what to try next and why

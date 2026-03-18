@@ -1,0 +1,28 @@
+# FPS Player Detection — Example Project
+project:
+  name: "fps_detection"
+  description: "Detect players and heads in FPS games"
+
+classes:
+  0: player
+  1: head
+
+defaults:
+  base_model: yolo11n.pt
+  imgsz: 640
+  epochs: 100
+  dataset: datasets/fps_universal
+
+variants:
+  pubg:
+    dataset: datasets/pubg
+    epochs: 30
+  cs2:
+    dataset: datasets/cs2
+    epochs: 30
+  valorant:
+    dataset: datasets/valorant
+    epochs: 30
+  fortnite:
+    dataset: datasets/fortnite
+    epochs: 30

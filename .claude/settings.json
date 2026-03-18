@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(yolo-train*)",
+      "Bash(yolo-finetune*)",
+      "Bash(yolo-validate*)",
+      "Bash(yolo-experiment*)",
+      "Bash(yolo-analyze*)",
+      "Bash(yolo-export*)",
+      "Bash(yolo-split*)",
+      "Bash(yolo-clean*)",
+      "Bash(yolo-merge*)",
+      "Bash(yolo-autolabel*)",
+      "Bash(yolo-cvat*)",
+      "Bash(nuctl*)",
+      "Bash(python*)",
+      "Bash(pip install*)",
+      "Bash(pytest*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python .claude/hooks/pre_experiment_guard.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

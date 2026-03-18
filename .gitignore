@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Tool caches
+.pytest_cache/
+.ruff_cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# YOLO training artifacts
+runs/
+wandb/
+
+# Experiment outputs (tracked via experiments/*.md reports, not raw data)
+experiments/exp_*/
+experiments/session_*.md
+!experiments/.gitkeep
+
+# Models (too large for git)
+*.pt
+*.onnx
+*.engine
+
+# Datasets (too large for git)
+datasets/
+
+# Environment
+.env
+*.local
+
+# Temporary
+*.tmp
+tmp/
+docs/

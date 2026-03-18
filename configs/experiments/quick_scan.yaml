@@ -1,0 +1,15 @@
+# Quick Scan — 5-epoch sweeps across key hyperparameters
+# Use with: yolo-train --config configs/experiments/quick_scan.yaml
+epochs: 5
+patience: 3
+imgsz: 640
+batch: -1
+lr0: 0.01
+cos_lr: true
+warmup_epochs: 1.0
+mosaic: 1.0
+mixup: 0.0
+erasing: 0.0
+amp: true
+verbose: false
+plots: true

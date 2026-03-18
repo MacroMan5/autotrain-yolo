@@ -1,0 +1,43 @@
+# yolo-project.yaml — Place this in your workspace root
+# This configures yolocc for your specific project.
+
+project:
+  name: "my_detection"
+  description: "Custom object detection project"
+
+# Class mapping — must match your dataset's data.yaml
+classes:
+  0: cat
+  1: dog
+  2: bird
+
+# Default training parameters
+defaults:
+  base_model: yolo11n.pt        # Ultralytics model (auto-downloads)
+  imgsz: 640                     # Input resolution
+  epochs: 100                    # Max training epochs
+  dataset: datasets/my_dataset   # Path to YOLO-format dataset
+
+# Optional: named variants for fine-tuning different subsets
+variants:
+  indoor:
+    dataset: datasets/indoor
+    epochs: 30
+  outdoor:
+    dataset: datasets/outdoor
+    epochs: 50
+  night:
+    dataset: datasets/night
+    epochs: 30
+    base_model: models/best_day.pt  # Fine-tune from daytime model
+
+# CVAT Integration (optional — pip install "yolocc[cvat]")
+# cvat:
+#   url: http://localhost:8080
+#   project_id: 1
+#   org: ""
+#   # Token: set CVAT_ACCESS_TOKEN env var
+
+# Optional: custom environment variable for workspace root
+# Default is YOLO_WORKSPACE_PATH. Change if you have multiple projects.
+# workspace_env: "MY_PROJECT_PATH"

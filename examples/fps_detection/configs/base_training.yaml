@@ -1,0 +1,16 @@
+# Base FPS training — universal model across all games
+epochs: 100
+imgsz: 640
+batch: -1
+patience: 20
+lr0: 0.01
+lrf: 0.01
+cos_lr: true
+warmup_epochs: 3.0
+mosaic: 1.0
+close_mosaic: 10
+mixup: 0.15
+copy_paste: 0.1
+erasing: 0.4
+amp: true
+plots: true

@@ -1,0 +1,43 @@
+"""Allow running as: python -m yolocc"""
+
+
+def main():
+    print("yolocc — YOLO training toolkit")
+    print()
+    print("CLI Commands:")
+    print("  yolo-train        Train a YOLO model")
+    print("  yolo-finetune     Fine-tune with transfer learning")
+    print("  yolo-validate     Validate dataset integrity")
+    print("  yolo-experiment   Run experiments + HP tuning")
+    print("  yolo-analyze      Active learning analysis")
+    print("  yolo-export       Export to ONNX")
+    print("  yolo-split        Stratified train/val/test split")
+    print("  yolo-clean        Remove duplicates and corrupted files")
+    print("  yolo-merge        Merge annotation files")
+    print("  yolo-autolabel    Auto-annotate with trained model")
+    print("  yolo-cvat         CVAT integration (pull/push/deploy)")
+    print()
+    print("Claude Code Skills:")
+    print("  /experiment       Experiment loop + HP tuning")
+    print("  /analyze          Training analysis + recommendations")
+    print("  /setup            Project initialization wizard")
+    print("  /review-dataset   Dataset quality audit")
+    print("  /train            Managed training with reporting")
+    print("  /review-annotations  AI-assisted annotation review")
+    print("  /annotate           Claude vision annotation correction")
+    print("  /cvat-pull        Pull annotations from CVAT")
+    print("  /cvat-push        Push uncertain images to CVAT")
+    print("  /cvat-deploy      Deploy model to CVAT via Nuclio")
+    print("  /compare-models   Compare 2+ models side-by-side")
+    print("  /benchmark        Profile model speed and size")
+    print("  /explain-results  Plain-English training report")
+    print("  /active-learning  Full active learning loop")
+    print()
+    print("All commands support --help. Install: pip install -e .")
+    print("CVAT features: pip install -e \".[cvat]\"")
+    print()
+    print("Docs: https://github.com/MacroMan5/yolocc-toolkit")
+
+
+if __name__ == "__main__":
+    main()

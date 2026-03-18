@@ -1,0 +1,12 @@
+# Resolution Test — baseline config at different input sizes
+# Override imgsz on the CLI: yolo-train --config configs/experiments/resolution.yaml --imgsz 512
+epochs: 10
+patience: 5
+batch: -1
+lr0: 0.01
+cos_lr: true
+mosaic: 0.5
+mixup: 0.0
+erasing: 0.0
+amp: true
+plots: true
