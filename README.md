@@ -4,7 +4,6 @@
 > experiment tracking, CVAT active learning, ONNX export. CLI tools + Claude Code skills.
 
 Universal YOLO training pipeline with semi-autonomous experimentation.
-Inspired by [Karpathy's autoresearch](https://github.com/karpathy/autoresearch) — but for object detection.
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)]()
 [![YOLO](https://img.shields.io/badge/YOLO-11%20%7C%2026-orange.svg)]()
