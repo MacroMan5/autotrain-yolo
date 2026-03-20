@@ -1,13 +1,12 @@
 # yolocc
 
-Universal YOLO training pipeline with semi-autonomous experimentation.
-Inspired by [Karpathy's autoresearch](https://github.com/karpathy/autoresearch) — but for object detection.
+YOLO training toolkit — dataset tools, HP tuning, intelligent experiment automation, CVAT active learning, ONNX export.
 
 ## Key Files
 
 | File | Who edits | Purpose |
 |------|-----------|---------|
-| `program.md` | Human | Experiment goals, constraints, budget |
+| `training-plan.md` | Human | Training goals, constraints, allowed actions |
 | `yolo-project.yaml` | Human (or /setup) | Project config — classes, dataset, defaults |
 | `experiments/summary.md` | AI | Dashboard of all experiments |
 | `experiments/session_*.md` | AI | Per-session before/after report |
@@ -37,7 +36,7 @@ Inspired by [Karpathy's autoresearch](https://github.com/karpathy/autoresearch) 
 
 The `/experiment` skill runs a 3-step reasoning loop:
 
-1. **Context**: Read `program.md` (boundaries), `summary.md` (history), `dataset_profile.yaml` (characteristics)
+1. **Context**: Read `training-plan.md` (boundaries), `summary.md` (history), `dataset_profile.yaml` (characteristics)
 2. **Reasoning loop** (ASSESS → ACT → LOG):
    - ASSESS: Classify bottleneck (data quality / architecture mismatch / HP not optimized)
    - ACT: Architecture swap, model.tune(), strategic experiment, or data action

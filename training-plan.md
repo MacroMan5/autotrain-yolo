@@ -1,4 +1,4 @@
-# Experiment Program
+# Training Plan
 
 > Edit this file to define what to optimize and how.
 > /experiment reads this before every session.

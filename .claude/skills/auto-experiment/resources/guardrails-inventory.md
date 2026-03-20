@@ -13,7 +13,7 @@ Single source of truth for all experiment guardrails.
 
 | ID | Rule | Location | Tier | Trigger | Recovery |
 |----|------|----------|------|---------|----------|
-| G-05 | Architecture change gate (3 experiments) | auto-experiment/SKILL.md + program.md | Justification | Agent wants architecture change | Must have 3+ experiments with <0.5% improvement first |
+| G-05 | Architecture change gate (3 experiments) | auto-experiment/SKILL.md + training-plan.md | Justification | Agent wants architecture change | Must have 3+ experiments with <0.5% improvement first |
 | G-06 | Architecture change exception | auto-experiment/SKILL.md | Full auto | >50% small objects, no P2 head | Immediate change allowed |
 | G-07 | Architecture justification quality | auto-experiment/SKILL.md | Justification | Architecture change | Must cite ≥2 dataset profile numbers |
 | G-08 | Immutable data | auto-experiment/SKILL.md | Hard stop | Any dataset modification | Never allowed — copies only |

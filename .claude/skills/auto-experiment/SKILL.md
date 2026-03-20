@@ -1,6 +1,6 @@
 ---
 name: auto-experiment
-description: "Run autonomous YOLO training experiments — reads program.md, assesses bottlenecks, acts strategically, and delegates HP optimization to model.tune()."
+description: "Run autonomous YOLO training experiments — reads training-plan.md, assesses bottlenecks, acts strategically, and delegates HP optimization to model.tune()."
 ---
 
 # Auto-Experiment — Strategic Decision Loop
@@ -12,7 +12,8 @@ HP optimization is delegated to `model.tune()` — don't compete with it.
 ## Pre-Flight
 
 1. [ ] `yolo-project.yaml` exists — run `/setup` if not
-2. [ ] `program.md` exists with goals + boundaries — run `/setup` if not
+2. [ ] `training-plan.md` exists with goals + boundaries — run `/setup` if not
+   - If not found, check for `program.md` (deprecated name) and warn user to rename it
 3. [ ] Dataset is valid — `yolo-validate`
 4. [ ] GPU available — `python -c "import torch; print(torch.cuda.is_available())"`
 5. [ ] Read `experiments/dataset_profile.yaml` — run `/review-dataset` if missing
@@ -21,7 +22,7 @@ HP optimization is delegated to `model.tune()` — don't compete with it.
 
 Read in order before every session:
 1. `yolo-project.yaml` — classes, dataset path, model defaults
-2. `program.md` — goals, hard constraints, soft preferences, allowed actions, domain knowledge
+2. `training-plan.md` — goals, hard constraints, soft preferences, allowed actions, domain knowledge
 3. `experiments/summary.md` — all prior journal entries (if exists)
 4. `experiments/dataset_profile.yaml` — dataset characteristics for architecture reasoning
 5. `experiments/analysis.md` — latest analysis (if exists)
@@ -29,7 +30,7 @@ Read in order before every session:
 ## Baseline
 
 If no baseline exists: `yolo-experiment baseline --budget 5 --patience 3`
-After baseline, update program.md Current Performance section.
+After baseline, update training-plan.md Current Performance section.
 
 ## Session Start
 
@@ -95,7 +96,7 @@ yolo-experiment run --override "<param>=<value>" --budget <epochs>
 
 1. Write session end marker: `## Session End — N experiments run`
 2. Write `experiments/session_YYYY-MM-DD.md` with before/after + key learnings
-3. Update program.md Model Lineage with current best path, metrics, source experiment
+3. Update training-plan.md Model Lineage with current best path, metrics, source experiment
 
 ## Guardrails
 

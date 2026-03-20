@@ -1,56 +1,23 @@
 # yolocc
 
-> YOLO11/YOLO26 training toolkit — dataset validation, hyperparameter tuning (model.tune),
-> experiment tracking, CVAT active learning, ONNX export. CLI tools + Claude Code skills.
-
-Universal YOLO training pipeline with semi-autonomous experimentation.
+> YOLO training toolkit — dataset validation, HP tuning, intelligent experiment
+> automation, CVAT active learning, ONNX export. 11 CLI commands + 14 Claude Code skills.
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)]()
 [![YOLO](https://img.shields.io/badge/YOLO-11%20%7C%2026-orange.svg)]()
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-skills-blueviolet.svg)]()
 [![License MIT](https://img.shields.io/badge/license-MIT-green.svg)]()
-[![Status: Experimental](https://img.shields.io/badge/status-experimental-yellow.svg)]()
 [![Tests](https://github.com/MacroMan5/yolocc-toolkit/actions/workflows/test.yml/badge.svg)](https://github.com/MacroMan5/yolocc-toolkit/actions/workflows/test.yml)
 
 ---
 
-## This Project Is Itself An Experiment
+## What It Does
 
-We're exploring a question: **Can semi-automated experimentation consistently improve object detection models?**
-
-Some parts work today. Others are hypotheses. We're building in the open and need your help testing.
-
-### What Works (proven engineering)
-
-| Feature | Status |
-|---|---|
-| Universal YOLO training pipeline (train, finetune, validate, export) | Working |
-| Experiment tracking with markdown reports | Working |
-| Dataset validation, splitting, cleaning, merging | Working |
-| Auto-labeling with trained models | Working |
-| Claude Code skills for structured workflows | Working |
-
-### What Needs Testing (research questions)
-
-| Feature | Question | How to help |
-|---|---|---|
-| Autonomous experiment loop | Does modify-train-evaluate-iterate find better configs? | Run `/experiment` on your dataset, share results |
-| Claude reviewing annotations (multimodal) | How accurately can Claude judge bounding box quality? | Test `/review-annotations`, compare to manual |
-| Multi-pass annotation (YOLO + Claude) | Does low-confidence YOLO + Claude vision beat manual speed? | Benchmark against your labeling workflow |
-
-**If you test any of these, [open an issue](https://github.com/MacroMan5/yolocc-toolkit/issues) with your findings!**
-
----
-
-## How It Works
+yolocc manages the full YOLO training lifecycle — from dataset preparation through deployment. It combines standard CLI tools for every step of the pipeline with an AI-driven experiment loop that diagnoses bottlenecks and optimizes hyperparameters autonomously.
 
 ```
-1. Prepare dataset + write program.md (goals, constraints, budget)
-2. /experiment assesses bottlenecks, tunes HPs, swaps architectures
-3. Session report: what improved, what didn't, what to try next
+Dataset prep → Training → HP optimization → Analysis → Active learning → Export
 ```
-
-**Full walkthrough**: See [WORKFLOW.md](WORKFLOW.md) for the complete end-to-end guide — from raw images to deployed model, including CVAT active learning, troubleshooting, and performance tuning.
 
 ## Quickstart
 
@@ -83,9 +50,9 @@ In Claude Code:
 
 Or manually — copy `yolo-project.example.yaml` to `yolo-project.yaml` and edit.
 
-### 4. Write Your Experiment Program
+### 4. Configure Your Training Plan
 
-Edit `program.md` — defines goals, constraints, and allowed actions:
+Edit `training-plan.md` — defines goals, constraints, and allowed actions:
 
 ```markdown
 ## Goal
@@ -142,6 +109,7 @@ Or in Claude Code:
 | `yolo-merge` | Merge annotation files |
 | `yolo-autolabel` | Auto-annotate with trained model |
 | `yolo-cvat` | CVAT integration (pull/push/deploy) |
+| `yolocc-doctor` | Preflight health check (env, deps, config) |
 
 All commands support `--help`.
 
@@ -154,8 +122,8 @@ All commands support `--help`.
 | `/setup` | Project initialization wizard |
 | `/review-dataset` | Dataset quality audit |
 | `/train` | Managed training with reporting |
-| `/review-annotations` | AI-assisted annotation review (experimental) |
-| `/annotate` | Claude vision annotation correction (experimental) |
+| `/review-annotations` | AI-assisted annotation review |
+| `/annotate` | Claude vision annotation correction |
 | `/cvat-pull` | Pull annotations from CVAT |
 | `/cvat-push` | Push uncertain images to CVAT for review |
 | `/cvat-deploy` | Deploy trained model to CVAT via Nuclio |
@@ -163,6 +131,19 @@ All commands support `--help`.
 | `/benchmark` | Profile model speed, FPS, and size |
 | `/explain-results` | Plain-English training report |
 | `/active-learning` | Full active learning loop |
+
+## Intelligent Experiment Automation
+
+The `/experiment` skill is an AI-driven optimization loop. It reads your training plan, diagnoses what's limiting model performance, and acts:
+
+1. **Reads context**: your training plan (goals + constraints), experiment history, dataset profile
+2. **Assesses bottleneck**: data quality issue? architecture mismatch? unoptimized HPs?
+3. **Acts**: delegates HP search to `model.tune()`, swaps architecture configs, runs strategic experiments
+4. **Reports**: session report with before/after metrics, per-class AP deltas, and next-step recommendations
+
+**Guardrails**: checkpoint backup before architecture changes, immutable original data, hard constraint enforcement (budget, epochs, regression limits).
+
+Full walkthrough: see [WORKFLOW.md](WORKFLOW.md).
 
 ## CVAT Integration
 
@@ -265,16 +246,13 @@ yolocc is part of a three-repo toolkit for object detection workflows:
 
 | File | Who | Purpose |
 |---|---|---|
-| `program.md` | You edit | Experiment goals + constraints |
+| `training-plan.md` | You edit | Training goals + constraints |
 | `yolo-project.yaml` | You edit | Project config |
 | `experiments/summary.md` | Generated | Experiment dashboard |
 | `experiments/session_*.md` | Generated | Session reports |
 | `experiments/analysis.md` | Generated | Recommendations |
 
 ## Contributing
-
-- **Testers**: Run experiments on your dataset, share results
-- **Engineers**: Integrations (W&B, MLflow), new tools
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
 

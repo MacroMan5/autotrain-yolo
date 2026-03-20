@@ -155,7 +155,7 @@ Compare these files against each other AND against the actual code:
 - `WORKFLOW.md` — step-by-step workflows
 - `CLAUDE.md` — architecture, skills, commands
 - `CONTRIBUTING.md` — setup, testing instructions
-- `program.md` — experiment template
+- `training-plan.md` — experiment template
 - `yolo-project.example.yaml` — config options
 
 Flag:

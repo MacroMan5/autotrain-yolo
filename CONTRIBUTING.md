@@ -1,17 +1,16 @@
 # Contributing to yolocc
 
-Thank you for your interest! This project is both a tool and a research experiment.
+Thank you for your interest in yolocc!
 
 ## Ways to Contribute
 
-### Share Experiment Results (most valuable!)
+### Report Issues & Share Feedback
 Run the tools on your dataset and tell us what happened:
-- Which skills did you use?
-- Did the experiment loop make good decisions?
-- How did annotation review accuracy compare to manual?
+- Which skills or commands did you use?
+- What worked well and what didn't?
 - What was your dataset type? (medical, agriculture, security, etc.)
 
-Open an issue with the label `experiment-results`.
+Open an issue with the label `feedback`.
 
 ### Report Bugs
 Open an issue with:

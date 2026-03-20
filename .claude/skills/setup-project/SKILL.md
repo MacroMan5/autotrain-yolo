@@ -123,7 +123,7 @@ These are the pre-built configs the agent selects from during experimentation.
 
 ### 7. Run Dataset Profile
 Run `/review-dataset` which includes the profiling step.
-This generates `experiments/dataset_profile.yaml` and fills program.md's Dataset Summary.
+This generates `experiments/dataset_profile.yaml` and fills training-plan.md's Dataset Summary.
 
 ### 8. Offer Baseline Run
 Ask: "Run a 5-epoch baseline to establish starting metrics? (recommended)"
@@ -135,11 +135,11 @@ yolo-experiment baseline --budget 5 --patience 3
 
 Read `experiments/summary.md` for baseline metrics.
 
-### 9. Generate program.md
-Create `program.md` using the **boundaries template** (not scripted phases):
+### 9. Generate training-plan.md
+Create `training-plan.md` using the **boundaries template** (not scripted phases):
 
 ```markdown
-# <Project Name> — Experiment Program
+# <Project Name> — Training Plan
 
 ## Project Context
 

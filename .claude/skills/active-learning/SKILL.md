@@ -61,7 +61,7 @@ yolo-validate <merged_dataset>
 ```
 
 ### 5b. Re-Profile After Merge
-Run `/review-dataset` to update the dataset profile in program.md.
+Run `/review-dataset` to update the dataset profile in training-plan.md.
 The profile may have changed (new class distribution, different object sizes).
 The experiment reasoning loop needs current data.
 

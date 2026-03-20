@@ -63,4 +63,4 @@ training_dynamics:
 - Decide what to experiment with (that's the reasoning loop's job)
 - Modify the dataset
 - Run multiple experiments
-- Edit program.md or summary.md
+- Edit training-plan.md or summary.md

@@ -27,7 +27,7 @@ All thresholds use object sizes **at training imgsz**, not native resolution.
 | ≤80 | m (medium) | Many classes need capacity |
 | >80 | l (large) | COCO-scale datasets |
 
-Override with deployment constraints from program.md (e.g., <5ms inference → force nano).
+Override with deployment constraints from training-plan.md (e.g., <5ms inference → force nano).
 
 ## Architecture Change Rules
 

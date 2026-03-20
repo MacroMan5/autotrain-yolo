@@ -27,7 +27,7 @@ Detect available devices. Run on GPU (`0`) if available, CPU (`cpu`) always. If 
 
 ## Procedure
 
-1. **Read `program.md`** — check the "Deployment target" and "Secondary Goals" sections for latency/size constraints.
+1. **Read `training-plan.md`** — check the "Deployment target" and "Secondary Goals" sections for latency/size constraints.
 
 2. **Locate the model** using the lookup order above. Confirm the path exists before proceeding.
 
@@ -72,7 +72,7 @@ for device in devices:
 | PyTorch  | 1280  | ...            | ...    | ...       |
 ```
 
-6. **Analyze against deployment constraints** — if `program.md` specifies:
+6. **Analyze against deployment constraints** — if `training-plan.md` specifies:
    - A latency target (e.g., "< 10ms"): flag any configuration that exceeds it
    - A model size limit: flag if the model exceeds it
    - A target device: highlight the relevant device results
@@ -89,12 +89,12 @@ Print results directly to the conversation. Do not write to a file unless the us
 Structure:
 1. Model info (path, parameter count, variant)
 2. Results table(s) — one per device
-3. Deployment check — pass/fail against `program.md` constraints
+3. Deployment check — pass/fail against `training-plan.md` constraints
 4. Recommendation — optimal imgsz and format for the stated deployment target
 
 ## Important
 
 - Do not export the model to other formats unless the user asks. `model.benchmark()` tests the PyTorch format by default.
-- If `program.md` has no deployment constraints, skip the constraint check and just report the numbers.
+- If `training-plan.md` has no deployment constraints, skip the constraint check and just report the numbers.
 - Keep output factual. Report what the numbers show, suggest next steps if relevant.
 - If the model file does not exist, stop and tell the user. Do not train a model.

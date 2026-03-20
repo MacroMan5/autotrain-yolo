@@ -13,7 +13,7 @@ Read:
 - Latest experiment's report + `results.csv` or `tune_results.csv`
 - Current best metrics from `experiments/summary.md` journal entries
 - `experiments/dataset_profile.yaml`
-- `program.md` (thresholds, goals, constraints)
+- `training-plan.md` (thresholds, goals, constraints)
 
 ### Results.csv Lookup Order
 
@@ -28,7 +28,7 @@ For tune runs, also check:
 
 **Comparison**: Latest vs baseline AND current best (mAP50-95, per-class AP)
 
-**Per-class regression check**: Flag any class exceeding `program.md` threshold vs current best
+**Per-class regression check**: Flag any class exceeding `training-plan.md` threshold vs current best
 
 **Training dynamics** (if results.csv available):
 - Convergence speed: epochs to reach 90% of final mAP

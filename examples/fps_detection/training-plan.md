@@ -1,4 +1,4 @@
-# FPS Detection — Experiment Program
+# FPS Detection — Training Plan
 
 ## Project Context
 

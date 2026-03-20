@@ -9,13 +9,13 @@ Follow the phases in order for a new project, or jump to any phase mid-stream.
 ```bash
 pip install -e .
 
-# In Claude Code, run /setup to create yolo-project.yaml + program.md
+# In Claude Code, run /setup to create yolo-project.yaml + training-plan.md
 # Or copy the example configs manually (see Phase 2)
 
 yolo-validate datasets/my_data
 yolo-experiment baseline --budget 5
 
-# Edit program.md with your goals, constraints, and strategy
+# Edit training-plan.md with your goals, constraints, and strategy
 # Then in Claude Code:
 #   /experiment   — experiment + HP tuning
 #   /analyze      — detailed model analysis + recommendations
@@ -140,12 +140,12 @@ yolo-clean --dataset datasets/my_data
 ## Phase 2: Initialize Project
 
 > **TL;DR** -- Run `/setup` in Claude Code, or manually create `yolo-project.yaml`
-> (classes, dataset path, defaults) and `program.md` (goals, constraints, strategy).
+> (classes, dataset path, defaults) and `training-plan.md` (goals, constraints, strategy).
 > These two files drive the entire experimentation loop.
 
 ### Using /setup (Recommended)
 
-Run `/setup` in Claude Code. It walks through project name, classes, dataset path, base model, training defaults, and optional CVAT integration, then generates `yolo-project.yaml` and `program.md`.
+Run `/setup` in Claude Code. It walks through project name, classes, dataset path, base model, training defaults, and optional CVAT integration, then generates `yolo-project.yaml` and `training-plan.md`.
 
 ### Manual Setup
 
@@ -190,9 +190,9 @@ variants:
 - `defaults.dataset` is resolved relative to workspace root (`YOLO_WORKSPACE_PATH` or cwd)
 - `variants` override `dataset`, `epochs`, and `base_model` per subset
 
-### Writing program.md
+### Writing training-plan.md
 
-`program.md` defines what to optimize, constraints, and allowed actions. Create it from the template (`/setup` generates one) or write it manually. See `examples/fps_detection/program.md` for a real-world example.
+`training-plan.md` defines what to optimize, constraints, and allowed actions. Create it from the template (`/setup` generates one) or write it manually. See `examples/fps_detection/training-plan.md` for a real-world example.
 
 Key sections: **Training Mode** (scratch / fine-tune / transfer), **Goals** (target metrics), **Constraints** (what not to change), **Strategy** (what to try and in what order), **Budget** (max epochs, max experiments, patience).
 
@@ -261,7 +261,7 @@ If baseline mAP50 < 0.50, fix data before experimenting with hyperparameters.
 
 ## Phase 4: Experimentation
 
-> **TL;DR** -- Edit `program.md` with goals/constraints. Use `/experiment` in Claude
+> **TL;DR** -- Edit `training-plan.md` with goals/constraints. Use `/experiment` in Claude
 > Code (assesses bottleneck, tunes via model.tune(), swaps architecture if needed).
 > From CLI: `yolo-experiment tune --space lr` for HP optimization,
 > or `yolo-experiment run --strategy learning_rate` for grid sweeps.
@@ -269,7 +269,7 @@ If baseline mAP50 < 0.50, fix data before experimenting with hyperparameters.
 ### How It Works
 
 ```
-  program.md                    experiments/summary.md
+  training-plan.md                    experiments/summary.md
   (goals & constraints)         (what's been tried)
         |                              |
         v                              v
@@ -294,7 +294,7 @@ If baseline mAP50 < 0.50, fix data before experimenting with hyperparameters.
 
 ### Using /experiment (Claude Code)
 
-Type `/experiment`. Claude reads `program.md` and `experiments/summary.md`, picks what to try next, runs experiments, and writes a session report. Quality depends on how specific your `program.md` is.
+Type `/experiment`. Claude reads `training-plan.md` and `experiments/summary.md`, picks what to try next, runs experiments, and writes a session report. Quality depends on how specific your `training-plan.md` is.
 
 ### Using CLI
 
@@ -668,7 +668,7 @@ Start with `yolo11n`/`yolo11s` for experimentation, scale up once dataset and co
 | File | Who Edits | Purpose |
 |------|-----------|---------|
 | `yolo-project.yaml` | You | Project config -- classes, defaults, CVAT settings |
-| `program.md` | You | Experiment goals and constraints |
+| `training-plan.md` | You | Experiment goals and constraints |
 | `experiments/summary.md` | AI | Dashboard of all experiments |
 | `experiments/session_*.md` | AI | Per-session before/after reports |
 | `experiments/analysis.md` | AI | Training advisor recommendations |

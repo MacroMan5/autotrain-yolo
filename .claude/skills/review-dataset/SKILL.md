@@ -49,9 +49,9 @@ The script outputs structured YAML with:
 
 Save the output to `experiments/dataset_profile.yaml`.
 
-### 5. Write to program.md
+### 5. Write to training-plan.md
 
-Fill the **Dataset Summary** section in program.md with profile data:
+Fill the **Dataset Summary** section in training-plan.md with profile data:
 - Total images: train/val counts
 - Classes: N — [list]
 - Class balance: most/least represented with counts
