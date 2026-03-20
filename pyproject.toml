@@ -69,6 +69,7 @@ yolo-merge = "yolocc.dataset.merger:merger_cli"
 yolo-autolabel = "yolocc.dataset.autolabel:autolabel_cli"
 yolo-experiment = "yolocc.experiment.runner:experiment_cli"
 yolo-cvat = "yolocc.cvat.cli:cvat_cli"
+yolocc-doctor = "yolocc.doctor:doctor_cli"
 
 [tool.setuptools.packages.find]
 where = ["src"]
