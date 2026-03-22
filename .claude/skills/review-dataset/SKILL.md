@@ -28,6 +28,36 @@ Scan label files for:
 - **Empty images**: Count and percentage
 - **Split Balance**: Compare class ratios between train and val
 
+### 3.5 Visual Spot-Check (Claude Vision)
+
+Sample random images and visually verify annotation quality using Claude's multimodal vision.
+
+#### Categorize images by annotation type:
+- **Both classes**: images containing all project classes
+- **Single-class only**: images with only one class (e.g., body without head)
+- **Empty**: negative samples with no annotations
+
+#### For each category, sample 2-4 images:
+1. Draw annotations using `python scripts/draw_annotations.py`
+2. Read the annotated image with Claude vision
+3. Assess:
+   - Are visible objects properly annotated?
+   - Are there **missing annotations** (visible objects with no box)?
+   - Are boxes accurately placed?
+   - Are class labels correct?
+
+#### Flag issues:
+- **Incomplete annotations**: If a significant % of single-class images have visible objects of the missing class (e.g., body annotated but visible head not annotated), flag as "incomplete annotations" with estimated scope
+- **Misclassified**: Wrong class assigned to a box
+- **Phantom boxes**: Boxes on non-objects (UI elements, background)
+
+#### Report findings:
+Include visual spot-check results in the audit report with:
+- Number of images sampled per category
+- Issues found with example filenames
+- Estimated % of dataset affected
+- Recommendation: auto-label, manual review, or acceptable as-is
+
 ### 4. Dataset Profile for Architecture Selection
 
 Run the profiling script with imgsz from yolo-project.yaml (default 640):
